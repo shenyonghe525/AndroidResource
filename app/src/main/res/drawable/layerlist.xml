@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="300"
+    android:exitFadeDuration="300">
+    <!--1 根节点不同时，可设置的属性是会不同的，比如selector下，可以设置一些状态属性，而在layer-list下，可以设置偏移量；
+    2 就算父节点同样是selector，放在drawable目录和放在color目录下可用的属性也会不同，比如drawable目录下可用的属性为
+    android:drawable，在color目录下可用的属性为android:color；
+    3 item的子节点可以为任何类型的drawable类标签，除了上面例子中的shape、color、layer-list，也可以是selector，
+    还有其他没讲过的bitmap、clip、scale、inset、transition、rotate、animated-rotate、lever-list等等。
+    4 item是从上往下匹配的，如果匹配到一个item那它就将采用这个item，而不是采用最佳匹配的规则；所以设置默认的状态，
+    一定要写在最后，如果写在前面，则后面所有的item都不会起作用了-->
+    <item android:state_pressed="true" >
+        <layer-list>
+            <!-- 灰色阴影 -->
+            <item
+                android:left="2dp"
+                android:top="4dp">
+                <shape>
+                    <solid android:color="@android:color/darker_gray"/>
+                    <corners android:radius="10dp"/>
+                </shape>
+            </item>
+            <!-- 白色前景 -->
+            <item
+                android:bottom="4dp"
+                android:right="2dp">
+                <shape>
+                    <solid android:color="#FFFFFF"/>
+                    <corners android:radius="10dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <item>
+        <layer-list>
+            <!-- 灰色阴影 -->
+            <item
+                android:left="2dp"
+                android:top="4dp">
+                <shape>
+                    <solid android:color="@android:color/darker_gray"/>
+                    <corners android:radius="10dp"/>
+                </shape>
+            </item>
+            <!-- 白色前景 -->
+            <item
+                android:bottom="4dp"
+                android:right="2dp">
+                <shape>
+                    <solid android:color="@color/lightgray"/>
+                    <corners android:radius="10dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
